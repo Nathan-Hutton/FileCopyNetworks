@@ -3,7 +3,9 @@
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 
 public class FileCopy {
@@ -29,7 +31,9 @@ public class FileCopy {
 
         try (
             FileInputStream input_stream = new FileInputStream(args[0]);
+            BufferedInputStream buffered_input = new BufferedInputStream(input_stream);
             FileOutputStream output_stream = new FileOutputStream(args[1]);
+            BufferedOutputStream buffered_output = new BufferedOutputStream(output_stream);
         ){
             int read_byte;
             while ((read_byte = input_stream.read()) != -1) {
