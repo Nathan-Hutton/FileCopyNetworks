@@ -36,8 +36,8 @@ public class FileCopy {
             BufferedOutputStream buffered_output = new BufferedOutputStream(output_stream);
         ){
             int read_byte;
-            while ((read_byte = input_stream.read()) != -1) {
-                output_stream.write(read_byte);
+            while ((read_byte = buffered_input.read()) != -1) {
+                buffered_output.write(read_byte);
             }
         }
         catch (FileNotFoundException e) {
